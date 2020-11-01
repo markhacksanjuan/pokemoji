@@ -31,6 +31,13 @@ window.onload = () => {
         bottom = () => {
           return this.y + this.height
         }
+        objectCollisionWith = (player) => {
+          return !(this.right() > player.left() || 
+                  this.bottom() > player.top() ||
+                  this.left() < player.right() ||
+                  this.top() < player.bottom()
+          )
+        }
 
       } 
 
@@ -82,7 +89,7 @@ window.onload = () => {
         return !(this.right() < obstacle.left() || 
                 this.bottom() < obstacle.top() ||
                 this.left() > obstacle.right() ||
-                this.top() > obstacle.left()
+                this.top() > obstacle.bottom()
         )
       }
       passed = (obstacle) => {
@@ -133,37 +140,46 @@ window.onload = () => {
           playerArr[i].newPos()
         }
       }
-      const goUp = () => {
+      const goUp1 = () => {
         newPosAll()
         background.draw()
         linkUp1.draw()
+      }
+      const goUp2 = () => {
+        newPosAll()
         background.draw()
         linkUp2.draw()
-        linkUp0.draw()
       }
-      const goDown = () => {
+      const goDown1 = () => {
         newPosAll()
         background.draw()
         linkDown1.draw()
+      }
+      const goDown2 = () => {
+        newPosAll()
         background.draw()
         linkDown2.draw()
-        linkDown0.draw()
       }
-      const goLeft = () => {
+      const goLeft1 = () => {
         newPosAll()
         background.draw()
         linkLeft1.draw()
+      }
+      const goLeft2 = () => {
+        newPosAll()
         background.draw()
         linkLeft2.draw()
-        linkLeft0.draw()
       }
-      const goRight = () => {
+      const goRight1 = () => {
         newPosAll()
         background.draw()
         linkRight1.draw()
+
+      }
+      const goRight2 = () => {
+        newPosAll()
         background.draw()
         linkRight2.draw()
-        linkRight0.draw()
       }
 
       //---------------------------------- JUEGO -----------------------------------
@@ -182,29 +198,48 @@ window.onload = () => {
         background.draw()
         linkDown0.draw()
         if(linkUp0.speedY < 0){
-          goUp()
+          if(linkUp0.y % 7 === 0){
+            goUp1()
+          }else {
+            goUp2()
+          }
         }else if(linkDown0.speedY > 0){
-          goDown()
+          if(linkDown0.y % 7 === 0){
+            goDown1()
+          }else {
+            goDown2()
+          }
         }else if(linkLeft0.speedX < 0){
-          goLeft()
+          if(linkLeft0.x % 5 === 0){
+            goLeft1()
+          }else {
+            goLeft2()
+          }
         }else if(linkRight0.speedX > 0){
-          goRight()
+          if(linkRight0.x % 5 === 0){
+            goRight1()
+          }else {
+            goRight2()
+          }
         }
-
+        checkCollision()
             
         requestAnimationFrame(updateGameArea)
       }
           
           // ------------ FIN DEL JUEGO
-    // const checkGameOver = () => {
-    //   const collision = obstaclesArr.some((obstacle) => {
-    //     return skate.collisionWith(obstacle)
-    //   })
-    //   if(collision){
-    //     gameOver()
-    //     return true
-    //   }
-    // }
+    const checkCollision = () => {
+      const collision = playerArr.some((player) => {
+        return house.objectCollisionWith(player)
+      })
+      if(collision){
+        console.log('collision')
+        for(i = 0; i < playerArr.length; i++){
+          playerArr[i].speedY = 0
+          playerArr[i].speedX = 0
+        }
+      }
+    }
           
     const gameOver = () => {
       const backgroundGameOver = new BackgroundColor(canvas.width, canvas.height, 0, 0, 'black')
@@ -223,9 +258,6 @@ window.onload = () => {
     //     skateDown.points++
     //     skateUp.points++
     //     skate.points++
-    //     console.log(skate.points)
-    //     console.log(skateDown.points)
-    //     console.log(skateUp.points)
     //   }
     // }
     const writeText = (_color, _font, _x, _y, _text) => {
@@ -234,6 +266,13 @@ window.onload = () => {
       ctx.textAlign = 'center'
       ctx.fillText(_text, _x, _y)
     }
+
+
+
+    // ---------------------- ANIMACION BATALLA -----------------------------
+    
+
+
           
           
           // ------------- KEYBOARD ------------------
@@ -274,7 +313,6 @@ window.onload = () => {
         playerArr[i].speedY = 0
         playerArr[i].speedX = 0
       }
-      console.log(linkUp0.y)
     })
               
               
