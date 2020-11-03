@@ -34,7 +34,10 @@ document.addEventListener('click', (event) => {
         }else {
             emojiPlayer = event.target.firstElementChild
             emojiPlayerBattle.img.src = emojiPlayer.src
-            emojiPlayerBattle.draw()
+            emojiPlayerBattle.cure()
+            healthPlayerRect.cure()
+            let selectedTag = event.target
+            selectedTag.remove()
         }
     }else if(event.target.localName === 'img'){
         if(event.target.offsetParent.offsetParent.id === 'weapons'){

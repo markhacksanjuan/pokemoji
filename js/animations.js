@@ -1,10 +1,7 @@
-const emojiWeaponNameArr = emojiWeaponArr.map(item => {
-    return item.name
-})
+
 
 const battleAnimation = () => {
     if(!(enemy.alive)){
-        console.log(enemy.src)
         catchEnemy(enemy)
         endBattle()
     }
@@ -17,6 +14,7 @@ const battleAnimation = () => {
         healthDraw()
         enemy.draw()
         emojiPlayerBattle.draw()
+        enemyAttack()
     }
 }
 
@@ -33,8 +31,6 @@ const healthDraw = () => {
 }
 
 const catchEnemy = (_enemy) => {
-    console.log(enemy.name)
-    console.log(enemy.src)
     const div = document.getElementById('emoji')
     const button = document.createElement('button')
     button.setAttribute('class',"list-group-item list-group-item-action")
@@ -44,4 +40,12 @@ const catchEnemy = (_enemy) => {
     img.setAttribute('emoji-name', enemy.name)
     button.appendChild(img)
     div.appendChild(button)
+}
+
+const enemyAttack = () => {
+    if(Date.now() - dateRightNow >= 1500){
+        dateRightNow = Date.now()
+        emojiPlayerBattle.damage(enemy)
+        healthPlayerRect.update(enemy)
+    }
 }

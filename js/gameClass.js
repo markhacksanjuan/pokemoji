@@ -44,7 +44,7 @@ class BackgroundColor {
         this.speedY = 0
         this.margin = 15
         this.points = 0
-        this.attack = 100
+        this.attack = 5
         this.life = life
         this.defense = 50
         this.alive = true
@@ -102,30 +102,79 @@ class BackgroundColor {
         this.alive = false
 
       }
-    }       
+    }   
+    cure = () => {
+      if(this.life + 20 > 200){
+        this.life = 200
+      }else {
+        this.life += 20
+      }
+    }    
 }
 
-    class HealthRect {
-      constructor(_width, _height, _x, _y, _stroke){
-        this.width = _width
-        this.height = _height
-        this.x = _x
-        this.y = _y
-        this.stroke = _stroke
-      }
-      drawFill = () => {
-        if(!(this.stroke)){
-          ctx.fillStyle = 'red'
-          ctx.fillRect(this.x, this.y, this.width, this.height)
-        }
-      }
-      drawStroke = () => {
-        if(this.stroke){
-          ctx.strokeStyle = 'black'
-          ctx.strokeRect(this.x, this.y, this.width, this.height)
-        }
-      }
-      update = (attack) => {
-        this.width -= attack.attack
-      }
-    } 
+class HealthRect {
+  constructor(_width, _height, _x, _y, _stroke){
+    this.width = _width
+    this.height = _height
+    this.x = _x
+    this.y = _y
+    this.stroke = _stroke
+  }
+  drawFill = () => {
+    if(!(this.stroke)){
+      ctx.fillStyle = 'red'
+      ctx.fillRect(this.x, this.y, this.width, this.height)
+    }
+  }
+  drawStroke = () => {
+    if(this.stroke){
+      ctx.strokeStyle = 'black'
+      ctx.strokeRect(this.x, this.y, this.width, this.height)
+    }
+  }
+  update = (attack) => {
+    this.width -= attack.attack
+  }
+  cure = () => {
+    this.width += 20
+  }
+} 
+
+class Weapon {
+  constructor(_width, _height, _x, _y, _src){
+    this.width = _width
+    this.height = _height
+    this.x = _x
+    this.y = _y
+    this.name = ''
+    this.src = _src
+      
+    const img = new Image()
+    img.addEventListener('load', () => {
+        this.img = img
+    })
+    img.src = _src
+  }
+  draw = () => {
+  ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+  }
+  right = () => {
+    return this.x + this.width
+  }
+  left = () => {
+    return this.x
+  }
+  top = () => {
+    return this.y
+  }
+  bottom = () => {
+    return this.y + this.height
+  }
+  collisionWith = (obstacle) => {
+    return !(this.right() < obstacle.left() || 
+            this.bottom() < obstacle.top() ||
+            this.left() > obstacle.right() ||
+            this.top() > obstacle.bottom()
+    )
+  }      
+}

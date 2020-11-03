@@ -1,12 +1,31 @@
 window.onload = () => {
       //---------------------------------- JUEGO -----------------------------------
       
-      
       // ------------------------- INICIACIÓN DEL JUEGO
       const startGame = () => {
         background.draw()
         linkUp0.draw()
+        
+        
+        let weaponX = Math.floor(Math.random() * (canvas.width))
+        let weaponY = Math.floor(Math.random() * (canvas.height))
+        let weaponRandom = Math.floor(Math.random() * (maxWeapon - minWeapon) + minWeapon)
+        const oldWeapon = new ImageCreation(weaponW, weaponH, weaponX, weaponY, './images/emojisAlone/emoji-punch.png')
+        weaponsArr.push(oldWeapon)
+        console.log(oldWeapon.img)
+        console.log(oldWeapon)
+        console.log(background.img)
+        console.log(oldWeapon.src)
+        console.log(oldWeapon.img.src)
+        // oldWeapon.draw()
+        
         updateGameArea()
+
+
+
+
+
+
       }
       
       
@@ -45,6 +64,10 @@ window.onload = () => {
         }else {
           battleAnimation()
         }
+        if(!(emojiPlayerBattle.alive)){
+          gameOver()
+          return
+        }
         
         requestAnimationFrame(updateGameArea)
       }
@@ -76,7 +99,7 @@ window.onload = () => {
     let counter = 0
     const createBattle = () => {
       counter++
-      if(counter % 200 === 0){
+      if(counter % 400 === 0){
           if(!(battle)){
             battle = true
           }
@@ -106,7 +129,5 @@ window.onload = () => {
     // ---------------------- ANIMACION BATALLA -----------------------------
 
 
-        startGame()
-              
-              
-  };  
+        startGame()          
+};  
