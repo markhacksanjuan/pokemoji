@@ -45,10 +45,11 @@ class BackgroundColor {
         this.margin = 15
         this.points = 0
         this.attack = 100
-        this.life = 100
+        this.life = life
         this.defense = 50
         this.alive = true
         this.src = _src
+        this.name = ''
         
         const img = new Image()
         img.addEventListener('load', () => {
@@ -94,7 +95,13 @@ class BackgroundColor {
       return(this.right() === (obstacle.left()))
     }
     damage = (attack) => {
-     this.live -= attack.attack   
+      if(this.life > attack.attack){
+        this.life -= attack.attack
+      }else {
+        this.life = 0
+        this.alive = false
+
+      }
     }       
 }
 
@@ -118,17 +125,7 @@ class BackgroundColor {
           ctx.strokeRect(this.x, this.y, this.width, this.height)
         }
       }
-
-      right = () => {
-        return this.x + this.width
-      }
-      left = () => {
-        return this.x
-      }
-      top = () => {
-        return this.y
-      }
-      bottom = () => {
-        return this.y + this.height
+      update = (attack) => {
+        this.width -= attack.attack
       }
     } 

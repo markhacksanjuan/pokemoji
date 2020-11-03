@@ -28,7 +28,6 @@ playerArr.push(linkLeft0, linkLeft1, linkLeft2, linkRight0, linkRight1, linkRigh
 const playerSrcArr = playerArr.map(item => {
     return item.src
 })
-console.log(playerArr[0])
 
 // RELACIÓN DE IMAGEN EMOJI
 const kEmoji = 136 / 129
@@ -38,5 +37,5 @@ const emojiX = Math.floor(canvas.width / 7) - Math.floor(emojiW/2)
 const emojiY = Math.floor(canvas.height *2 / 3) - Math.floor(emojiH/2)
 let emojiPlayerBattle = new ImageCreation(emojiW, emojiH, emojiX, emojiY, emojiPlayer.src)
 
-const healthPlayerStroke = new HealthRect (200, 20, canvas.width/3, canvas.height*12 / 15, true)
 const healthPlayerRect = new HealthRect (200, 20, canvas.width/3, canvas.height*12/ 15, false)
+const healthPlayerStroke = new HealthRect (200, 20, canvas.width/3, canvas.height*12 / 15, true)

@@ -28,7 +28,9 @@ document.addEventListener('keyup', () => {
 document.addEventListener('click', (event) => {
     if(event.target.localName === 'button'){
         if(event.target.offsetParent.id === 'weapons'){
-
+            let damage = emojiWeaponArr[emojiWeaponNameArr.indexOf(event.target.firstElementChild.getAttribute('emoji-name'))]
+            enemy.damage(damage)
+            healthEnemyRect.update(damage)
         }else {
             emojiPlayer = event.target.firstElementChild
             emojiPlayerBattle.img.src = emojiPlayer.src

@@ -12,41 +12,44 @@ window.onload = () => {
       
       // -------------- GENERACIÓN DEL LOOP DEL JUEGO
       const updateGameArea = () => {
-        background.draw()
-        linkDown0.draw()
-        if(linkUp0.speedY < 0){
-          if(linkUp0.y % 7 === 0){
-            goUp1()
-          }else {
-            goUp2()
+        if(!(battle)){
+          background.draw()
+          linkDown0.draw()
+          if(linkUp0.speedY < 0){
+            if(linkUp0.y % 7 === 0){
+              goUp1()
+            }else {
+              goUp2()
+            }
+          }else if(linkDown0.speedY > 0){
+            if(linkDown0.y % 7 === 0){
+              goDown1()
+            }else {
+              goDown2()
+            }
+          }else if(linkLeft0.speedX < 0){
+            if(linkLeft0.x % 5 === 0){
+              goLeft1()
+            }else {
+              goLeft2()
+            }
+          }else if(linkRight0.speedX > 0){
+            if(linkRight0.x % 5 === 0){
+              goRight1()
+            }else {
+              goRight2()
+            }
           }
-        }else if(linkDown0.speedY > 0){
-          if(linkDown0.y % 7 === 0){
-            goDown1()
-          }else {
-            goDown2()
-          }
-        }else if(linkLeft0.speedX < 0){
-          if(linkLeft0.x % 5 === 0){
-            goLeft1()
-          }else {
-            goLeft2()
-          }
-        }else if(linkRight0.speedX > 0){
-          if(linkRight0.x % 5 === 0){
-            goRight1()
-          }else {
-            goRight2()
-          }
-        }
-        checkCollision()
-        if(battle){
+          checkCollision()
+          createBattle()
+        }else {
           battleAnimation()
         }
-            
+        
         requestAnimationFrame(updateGameArea)
       }
           
+
           // ------------ FIN DEL JUEGO
     const checkCollision = () => {
       const collision = playerArr.some((player) => {
@@ -68,6 +71,17 @@ window.onload = () => {
       writeText('red', '50px sans-serif', canvas.width/2, canvas.height/3, gameOverText)
       
     }
+
+    // --------------- GENERACION DE BATALLAS CADA X SEGUNDOS ------------
+    let counter = 0
+    const createBattle = () => {
+      counter++
+      if(counter % 200 === 0){
+          if(!(battle)){
+            battle = true
+          }
+      }
+  }
           
           // ------------- PUNTUACIÓN ---------------
     // const checkPoints = () => {
