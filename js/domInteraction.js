@@ -54,5 +54,5 @@ document.addEventListener('click', (event) => {
         emojiPlayerBattle.life = life
         healthPlayerRect.width = life
         startGame()
-    }
+    }console.log(event)
 })

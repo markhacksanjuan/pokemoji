@@ -15,9 +15,9 @@ const createWeapon = () => {
     if(counterWeapon % 100 === 0){
         weaponX = Math.floor(Math.random() * (canvas.width))
         weaponY = Math.floor(Math.random() * (canvas.height))
-        
         let weaponRandom = Math.floor(Math.random() * (maxWeapon - minWeapon) + minWeapon)
-        newWeapon = new ImageCreation(weaponW, weaponH, weaponX, weaponY, emojiWeaponArr[weaponRandom].src)
+        
+        let newWeapon = new ImageCreation(weaponW, weaponH, weaponX, weaponY, emojiWeaponArr[weaponRandom].src)
         weaponsArr.push(newWeapon)
     }
 }
