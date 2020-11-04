@@ -1,7 +1,9 @@
 
 window.onload = () => {
   loadImage()
-  console.log(enemy)
+  createPlayerTag()
+  console.log(playerRandom)
+  console.log(imgEmojiArr)
   //---------------------------------- JUEGO -----------------------------------
   
   const startGame = () => {

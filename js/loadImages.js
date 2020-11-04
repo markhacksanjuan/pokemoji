@@ -44,8 +44,7 @@ let linkLeft0, linkLeft1, linkLeft2, linkRight0, linkRight1, linkRight2
 let enemy
 let emojiPlayerBattle
 
-const minEnemy = 0
-const maxEnemy = imgEmojiArr.length
+
 
 
 
@@ -83,7 +82,7 @@ const enemyArr = []
 enemy = new ImageCreation(emojiW, emojiH, emojiX, emojiY, imgEmojiArr[enemyRandom])
     
 const emojiPlayerBattleImg = new Image()
-emojiPlayerBattleImg.src = emojiPlayer.src
+emojiPlayerBattleImg.src = emojiArr[playerRandom].src
 emojiPlayerBattle = new ImageCreation(emojiW, emojiH, emojiX, emojiY, emojiPlayerBattleImg)
 
     
