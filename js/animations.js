@@ -36,7 +36,7 @@ const catchEnemy = (_enemy) => {
     button.setAttribute('class',"list-group-item list-group-item-action")
     button.setAttribute('type', 'button')
     const img = document.createElement('img')
-    img.src = enemy.img.src
+    // img.src = enemy.img.src
     img.setAttribute('emoji-name', enemy.name)
     button.appendChild(img)
     div.appendChild(button)

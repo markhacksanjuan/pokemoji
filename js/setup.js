@@ -17,3 +17,15 @@ const emojiWeaponNameArr = emojiWeaponArr.map(item => {
     return item.name
 })
 let clickablePokemon = false
+
+const kLink = 84 / 89
+const linkW = 30
+const linkH = linkW / kLink
+const linkX = Math.floor(canvas.width / 2) - Math.floor(linkW/2)
+const linkY = Math.floor(canvas.height / 2) - Math.floor(linkH/2)
+
+const kEmoji = 136 / 129
+const emojiW = 100
+const emojiH = emojiW / kEmoji
+const emojiX = Math.floor(canvas.width / 7) - Math.floor(emojiW/2)
+const emojiY = Math.floor(canvas.height *2 / 3) - Math.floor(emojiH/2)

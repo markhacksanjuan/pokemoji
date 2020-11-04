@@ -18,6 +18,9 @@ const createWeapon = () => {
         let weaponRandom = Math.floor(Math.random() * (maxWeapon - minWeapon) + minWeapon)
         
         let newWeapon = new ImageCreation(weaponW, weaponH, weaponX, weaponY, emojiWeaponArr[weaponRandom].src)
+        // setTimeout(() => {            
+        //     newWeapon.draw()
+        // },500)
         weaponsArr.push(newWeapon)
     }
 }

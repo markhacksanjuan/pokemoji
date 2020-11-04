@@ -1,13 +1,16 @@
 
 window.onload = () => {
+  loadImage()
+  console.log(enemy)
   //---------------------------------- JUEGO -----------------------------------
   
   const startGame = () => {
-    background.draw()
+    // background.draw()
     linkUp0.draw()       
     updateGameArea()
   }
   const updateGameArea = () => {
+
     if(!(battle)){
       background.draw()
       linkDown0.draw()

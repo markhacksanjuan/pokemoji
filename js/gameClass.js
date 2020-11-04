@@ -35,7 +35,7 @@ class BackgroundColor {
   } 
 
   class ImageCreation {
-    constructor(_width, _height, _x, _y, _src){
+    constructor(_width, _height, _x, _y, _img){
       this.width = _width
       this.height = _height
       this.x = _x
@@ -48,17 +48,11 @@ class BackgroundColor {
         this.life = life
         this.defense = 50
         this.alive = true
-        this.src = _src
         this.name = ''
-        
-        const img = new Image()
-        img.addEventListener('load', () => {
-            this.img = img
-        })
-        img.src = this.src
+        this.img = _img
     }
     draw = () => {
-    ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
     }
     newPos = () => {
     this.y += this.speedY

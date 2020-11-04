@@ -1,8 +1,4 @@
 // CREACIÓN DEL FONDO      
-const background = new ImageCreation(canvas.width, canvas.height, 0, 0, './images/background.jpg')
-
-
-
 
 
 // CREACIÓN DE LA CASA

@@ -1,5 +1,5 @@
 class Player {
-    constructor(_width, _height, _x, _y, _src){
+    constructor(_width, _height, _x, _y, img){
       this.width = _width
       this.height = _height
       this.x = _x
@@ -12,12 +12,8 @@ class Player {
         this.life = 100
         this.defense = 50
         this.alive = true
+        this.img = img
         
-        const img = new Image()
-        img.addEventListener('load', () => {
-            this.img = img
-        })
-        img.src = _src
     }
     draw = () => {
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)

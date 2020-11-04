@@ -1,20 +1,33 @@
-document.addEventListener('keydown', (event) => {
-if(event.key === 'ArrowUp'){  
+const moveUp = (a) => {
     for(i = 0; i < playerArr.length; i++){
-          playerArr[i].speedY -= 1
-      }
-}else if(event.key === 'ArrowDown'){
+            playerArr[i].speedY = a
+        }  
+}
+const moveDown = (a) => {
     for(i = 0; i < playerArr.length; i++){
-    playerArr[i].speedY += 1
+        playerArr[i].speedY = a
+    }  
+}
+const moveRight = (a) => {
+    for(i = 0; i < playerArr.length; i++){
+        playerArr[i].speedX = a
     }
-}else if(event.key === 'ArrowRight'){
-    for(i = 0; i < playerArr.length; i++){
-    playerArr[i].speedX += 1
-    }
-}else if(event.key === 'ArrowLeft'){
+}
+const moveLeft = () => {
     for(i = 0; i < playerArr.length; i++){
     playerArr[i].speedX -= 1
     }
+}
+
+document.addEventListener('keydown', (event) => {
+if(event.key === 'ArrowUp'){  
+    moveUp(-1)
+}else if(event.key === 'ArrowDown'){
+    moveDown(1)
+}else if(event.key === 'ArrowRight'){
+    moveRight()
+}else if(event.key === 'ArrowLeft'){
+    moveLeft()
 }
 })
 document.addEventListener('keyup', () => {
@@ -31,6 +44,19 @@ document.addEventListener('click', (event) => {
             let damage = emojiWeaponArr[emojiWeaponNameArr.indexOf(event.target.firstElementChild.getAttribute('emoji-name'))]
             enemy.damage(damage)
             healthEnemyRect.update(damage)
+        }else if (event.target.offsetParent.id === 'arrows'){
+            if(event.target.innerHTML === 'Up'){
+                moveUp(-1)
+            }
+            if(event.target.innerHTML === 'Down'){
+                moveDown(1)
+            }
+            if(event.target.innerHTML === 'Right'){
+                moveRight()
+            }
+            if(event.target.innerHTML === 'Left'){
+                moveLeft()
+            }
         }else {
             emojiPlayer = event.target.firstElementChild
             emojiPlayerBattle.img.src = emojiPlayer.src
@@ -48,11 +74,10 @@ document.addEventListener('click', (event) => {
         }
     }else if(event.target.innerHTML[3] === 'E' && clickablePokemon){
         clickablePokemon = false
-        console.log('CLICK')
         battle = false
         emojiPlayerBattle.alive = true
         emojiPlayerBattle.life = life
         healthPlayerRect.width = life
-        startGame()
-    }console.log(event)
+        // startGame()
+    }
 })
