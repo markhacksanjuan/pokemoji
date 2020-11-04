@@ -26,8 +26,8 @@ const endBattle = () => {
 const healthDraw = () => {
     healthEnemyRect.drawFill()
     healthEnemyStroke.drawStroke()
-    healthPlayerStroke.drawStroke()
     healthPlayerRect.drawFill()
+    healthPlayerStroke.drawStroke()
 }
 
 const catchEnemy = (_enemy) => {

@@ -31,7 +31,7 @@ const playerSrcArr = playerArr.map(item => {
 
 // RELACIÓN DE IMAGEN EMOJI
 const kEmoji = 136 / 129
-const emojiW = 136
+const emojiW = 100
 const emojiH = emojiW / kEmoji
 const emojiX = Math.floor(canvas.width / 7) - Math.floor(emojiW/2)
 const emojiY = Math.floor(canvas.height *2 / 3) - Math.floor(emojiH/2)

@@ -136,7 +136,11 @@ class HealthRect {
     this.width -= attack.attack
   }
   cure = () => {
-    this.width += 20
+    if(this.width + 20 < life){
+      this.width += 20
+    }else {
+      this.width = life
+    }
   }
 } 
 

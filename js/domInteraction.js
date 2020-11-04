@@ -46,5 +46,13 @@ document.addEventListener('click', (event) => {
             emojiPlayer = event.target
             emojiPlayerBattle.img.src = emojiPlayer.src
         }
+    }else if(event.target.innerHTML[3] === 'E' && clickablePokemon){
+        clickablePokemon = false
+        console.log('CLICK')
+        battle = false
+        emojiPlayerBattle.alive = true
+        emojiPlayerBattle.life = life
+        healthPlayerRect.width = life
+        startGame()
     }
 })
