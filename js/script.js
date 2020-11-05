@@ -1,6 +1,5 @@
 
 window.onload = () => {
-  loadImage()
   setTimeout(() => {
     createPlayerTag()
   }, 500);

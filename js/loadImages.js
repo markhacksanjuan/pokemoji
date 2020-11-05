@@ -52,7 +52,6 @@ emojiPlayerBattleImg.src = emojiArr[playerRandom].src
 
 
 const loadImage = () => {
-    console.log('hola')
     emojiArr.forEach(emoji => {
         let imgEmoji = new Image()
         imgEmoji.src = emoji.src
@@ -86,8 +85,6 @@ const enemyArr = []
 // const enemy = new ImageCreation(enemyW, enemyH, enemyX, enemyY, emojiArr[enemyRandom].src)
 enemy = new ImageCreation(emojiW, emojiH, emojiX, emojiY, imgEmojiArr[enemyRandom])
     
-emojiPlayerBattle = new ImageCreation(emojiW, emojiH, emojiX, emojiY, emojiPlayerBattleImg)
-
-    
-    
+emojiPlayerBattle = new ImageCreation(emojiW, emojiH, emojiX, emojiY, emojiPlayerBattleImg)  
 }
+loadImage()
