@@ -52,6 +52,18 @@ emojiPlayerBattleImg.src = emojiArr[playerRandom].src
 
 
 const loadImage = () => {
+
+    emojiArr.forEach(emoji => {
+        let imgEmoji = new Image()
+        imgEmoji.src = emoji.src
+        imgEmojiArr.push(imgEmoji)
+    })
+    emojiWeaponArr.forEach(emoji => {
+        let imgEmoji = new Image()
+        imgEmoji.src = emoji.src
+        imgWeaponArr.push(imgEmoji)
+    })
+
     background = new ImageCreation(canvas.width, canvas.height, 0, 0, backgroundImg)
     linkUp0 = new Player(linkW, linkH, linkX, linkY, linkUp0Img)
     linkUp1 = new Player(linkW, linkH, linkX, linkY, linkUp1Img)
