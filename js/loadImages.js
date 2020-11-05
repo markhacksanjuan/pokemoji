@@ -52,7 +52,7 @@ emojiPlayerBattleImg.src = emojiArr[playerRandom].src
 
 
 const loadImage = () => {
-
+    console.log('hola')
     emojiArr.forEach(emoji => {
         let imgEmoji = new Image()
         imgEmoji.src = emoji.src
