@@ -5,6 +5,7 @@ canvas.height = Math.floor(canvas.width / kCanvas)
 
 const ctx = canvas.getContext('2d')
 let dateRightNow = Date.now()
+let dateWeapons = Date.now()
 const life = 200
 let battle = false
 let selectedEnemy = false

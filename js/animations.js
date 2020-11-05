@@ -33,11 +33,14 @@ const healthDraw = () => {
 const catchEnemy = (_enemy) => {
     const div = document.getElementById('emoji')
     const button = document.createElement('button')
-    button.setAttribute('class',"list-group-item list-group-item-action")
+    button.id = _enemy.img.id
+    button.setAttribute('class',"list-group-item list-group-item-action px-2")
     button.setAttribute('type', 'button')
+    button.setAttribute('id', imgEmojiArr.indexOf(_enemy.img))
     const img = document.createElement('img')
-    // img.src = enemy.img.src
-    img.setAttribute('emoji-name', enemy.name)
+    img.src = _enemy.img.src
+    img.id = _enemy.img.id
+    img.setAttribute('emoji-name', _enemy.name)
     button.appendChild(img)
     div.appendChild(button)
 }

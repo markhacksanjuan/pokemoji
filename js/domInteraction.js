@@ -1,23 +1,4 @@
-const moveUp = (a) => {
-    for(i = 0; i < playerArr.length; i++){
-            playerArr[i].speedY = a
-        }  
-}
-const moveDown = (a) => {
-    for(i = 0; i < playerArr.length; i++){
-        playerArr[i].speedY = a
-    }  
-}
-const moveRight = (a) => {
-    for(i = 0; i < playerArr.length; i++){
-        playerArr[i].speedX = a
-    }
-}
-const moveLeft = () => {
-    for(i = 0; i < playerArr.length; i++){
-    playerArr[i].speedX -= 1
-    }
-}
+
 
 document.addEventListener('keydown', (event) => {
 if(event.key === 'ArrowUp'){  
@@ -25,9 +6,9 @@ if(event.key === 'ArrowUp'){
 }else if(event.key === 'ArrowDown'){
     moveDown(1)
 }else if(event.key === 'ArrowRight'){
-    moveRight()
+    moveRight(1)
 }else if(event.key === 'ArrowLeft'){
-    moveLeft()
+    moveLeft(-1)
 }
 })
 document.addEventListener('keyup', () => {
@@ -47,15 +28,27 @@ document.addEventListener('click', (event) => {
         }else if (event.target.offsetParent.id === 'arrows'){
             if(event.target.innerHTML === 'Up'){
                 moveUp(-1)
+                setTimeout(() => {
+                    moveUp(0)
+                },300)
             }
             if(event.target.innerHTML === 'Down'){
                 moveDown(1)
+                setTimeout(() => {
+                    moveDown(0)
+                },300)
             }
             if(event.target.innerHTML === 'Right'){
-                moveRight()
+                moveRight(1)
+                setTimeout(() => {
+                    moveRight(0)
+                },300)
             }
             if(event.target.innerHTML === 'Left'){
-                moveLeft()
+                moveLeft(-1)
+                setTimeout(() => {
+                    moveLeft(0)
+                },300)
             }
         }else {
             emojiPlayer = event.target.firstElementChild
@@ -67,7 +60,9 @@ document.addEventListener('click', (event) => {
         }
     }else if(event.target.localName === 'img'){
         if(event.target.offsetParent.offsetParent.id === 'weapons'){
-
+            let damage = emojiWeaponArr[emojiWeaponNameArr.indexOf(event.target.getAttribute('emoji-name'))]
+            enemy.damage(damage)
+            healthEnemyRect.update(damage)
         }else {
             emojiPlayer = event.target
             emojiPlayerBattle.img.src = emojiPlayer.src

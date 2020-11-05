@@ -1,4 +1,27 @@
 // --------------------- MOVIMIENTOS ---------------------
+const moveUp = (a) => {
+  for(i = 0; i < playerArr.length; i++){
+          playerArr[i].speedY = a
+      }  
+}
+const moveDown = (a) => {
+  for(i = 0; i < playerArr.length; i++){
+      playerArr[i].speedY = a
+  }  
+}
+const moveRight = (a) => {
+  for(i = 0; i < playerArr.length; i++){
+      playerArr[i].speedX = a
+  }
+}
+const moveLeft = (a) => {
+  for(i = 0; i < playerArr.length; i++){
+  playerArr[i].speedX = a
+  }
+}
+
+
+
 const newPosAll = () => {
     for(i = 0; i < playerArr.length; i++){
         playerArr[i].newPos()

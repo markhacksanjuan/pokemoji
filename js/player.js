@@ -3,7 +3,7 @@ const createPlayerTag = () => {
     
     const div = document.getElementById('emoji')
     const button = document.createElement('button')
-    button.setAttribute('class',"list-group-item list-group-item-action")
+    button.setAttribute('class',"list-group-item list-group-item-action px-2")
     button.setAttribute('type', 'button')
     button.setAttribute('id', playerRandom)
     const img = document.createElement('img')

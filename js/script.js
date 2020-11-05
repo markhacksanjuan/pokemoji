@@ -2,8 +2,7 @@
 window.onload = () => {
   loadImage()
   createPlayerTag()
-  console.log(playerRandom)
-  console.log(imgEmojiArr)
+
   //---------------------------------- JUEGO -----------------------------------
   
   const startGame = () => {
@@ -43,7 +42,7 @@ window.onload = () => {
       }
   
       createWeapon()
-      // drawWeapon()
+      drawWeapon()
       checkCollision()
       createBattle()
     }else {
