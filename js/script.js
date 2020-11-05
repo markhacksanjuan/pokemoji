@@ -2,6 +2,16 @@
 window.onload = () => {
   loadImage()
   createPlayerTag()
+  emojiArr.forEach(emoji => {
+    let imgEmoji = new Image()
+    imgEmoji.src = emoji.src
+    imgEmojiArr.push(imgEmoji)
+})
+emojiWeaponArr.forEach(emoji => {
+    let imgEmoji = new Image()
+    imgEmoji.src = emoji.src
+    imgWeaponArr.push(imgEmoji)
+})
 
   //---------------------------------- JUEGO -----------------------------------
   

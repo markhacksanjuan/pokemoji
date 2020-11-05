@@ -45,16 +45,7 @@ let enemy
 let emojiPlayerBattle
 
 
-emojiArr.forEach(emoji => {
-    let imgEmoji = new Image()
-    imgEmoji.src = emoji.src
-    imgEmojiArr.push(imgEmoji)
-})
-emojiWeaponArr.forEach(emoji => {
-    let imgEmoji = new Image()
-    imgEmoji.src = emoji.src
-    imgWeaponArr.push(imgEmoji)
-})
+
 const emojiPlayerBattleImg = new Image()
 emojiPlayerBattleImg.src = emojiArr[playerRandom].src
 
