@@ -121,7 +121,8 @@ window.onload = () => {
 
 
     // ---------------------- ANIMACION BATALLA -----------------------------
+    setTimeout(() => {
+      startGame()          
+    },1000)
 
-
-        startGame()          
 };  
