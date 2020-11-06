@@ -73,6 +73,7 @@ document.addEventListener('click', (event) => {
         emojiPlayerBattle.alive = true
         emojiPlayerBattle.life = life
         healthPlayerRect.width = life
+        weaponsArr.length = 0
         // startGame()
     }
 })

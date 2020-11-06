@@ -1,5 +1,3 @@
-
-
 const battleAnimation = () => {
     if(!(enemy.alive)){
         catchEnemy(enemy)

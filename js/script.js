@@ -62,8 +62,10 @@ window.onload = () => {
   const gameOver = () => {
     const backgroundGameOver = new BackgroundColor(canvas.width, canvas.height, 0, 0, 'black')
     backgroundGameOver.draw()
-    const gameOverText = 'Sorry dude... it\'s over! '
-    writeText('red', '50px sans-serif', canvas.width/2, canvas.height/3, gameOverText)
+    const gameOverText = 'Sorry dude... You\'ve been killed'
+    writeText('red', '30px sans-serif', canvas.width/2, canvas.height/3, gameOverText)
+    writeText('grey', '23px sans-serif', canvas.width/2, canvas.height*2/3, 'press the title to RESTART')
+
     
   }
   
@@ -71,7 +73,7 @@ window.onload = () => {
       let counter = 0
       const createBattle = () => {
         counter++
-        if(counter % 400 === 0){
+        if(counter % 500 === 0){
             if(!(battle)){
               battle = true
             }
